@@ -21,7 +21,7 @@ public:
     [[nodiscard]] virtual std::string serialize() const = 0;
 
 protected:
-    static constexpr std::string packetName = "Packet";
+    static constexpr const char* packetName = "Packet";
     static constexpr MinecraftPacketIds packetId = MinecraftPacketIds::Unknown;
     static constexpr int packetIdAsInt = static_cast<int>(packetId);
 };
