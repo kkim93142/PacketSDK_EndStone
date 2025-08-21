@@ -10,8 +10,8 @@
 #include <vector>
 
 class Packet {
-private:
-    ~Packet() = default;
+public:
+    virtual ~Packet() = default;
 
 public:
     [[nodiscard]] std::string getName() const {
