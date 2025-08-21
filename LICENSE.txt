@@ -1,3 +1,5 @@
+LGPL-v3.0 License
+
 USE CASE Source code delivery
 	YOU MUST Provide Copyright notices
 		ATTRIBUTE Highlighted
