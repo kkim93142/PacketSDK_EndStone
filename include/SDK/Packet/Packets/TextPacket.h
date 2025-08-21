@@ -3,7 +3,7 @@
 
 class TextPacket final : public Packet {
 public:
-    const enum class Type {
+    enum class Type {
         Raw,
         Chat,
         Translation,

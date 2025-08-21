@@ -4,7 +4,7 @@
 
 class DisconnectPacket final : public Packet {
 public:
-    const enum class DisconnectFailReason : uint32_t {
+    enum class DisconnectFailReason : uint32_t {
         Unknown = 0,
         CantConnectNoInternet = 1,
         NoPermissions = 2,

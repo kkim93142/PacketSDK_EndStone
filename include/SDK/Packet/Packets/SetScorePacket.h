@@ -8,12 +8,12 @@
 
 class SetScorePacket final : public Packet {
 public:
-    const enum class ActionType : uint8_t {
+    enum class ActionType : uint8_t {
         Change = 0,
         Remove = 1
     };
 
-    const enum class EntryType : int8_t {
+    enum class EntryType : int8_t {
         Player = 1,
         Entity = 2,
         FakePlayer = 3
