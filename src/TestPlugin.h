@@ -10,7 +10,7 @@
 class TestPlugin : public endstone::Plugin {
     void onEnable() override
     {
-        getLogger().info("Successfully loaded and enabled edited test plugin.");
+        getLogger().info("Successfully loaded and enabled test plugin.");
         registerEvent(&TestPlugin::onPacket, *this);
     }
 
