@@ -18,7 +18,7 @@ public:
     BookEditPacket();
     explicit BookEditPacket(std::string_view packetData);
 
-    ~BookEditPacket() {}
+    ~BookEditPacket() override {}
 
     EditType type;
     uint8_t slot;

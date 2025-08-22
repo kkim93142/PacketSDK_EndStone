@@ -34,7 +34,7 @@ public:
     SetScorePacket();
     explicit SetScorePacket(std::string_view packetData);
 
-    ~SetScorePacket() {}
+    ~SetScorePacket() override {}
 
     ActionType action;
     VarInt entriesLength;

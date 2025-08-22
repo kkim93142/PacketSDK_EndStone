@@ -6,7 +6,7 @@ public:
     explicit SetDisplayObjectivePacket();
     explicit SetDisplayObjectivePacket(const std::string_view packetData);
 
-    ~SetDisplayObjectivePacket() {};
+    ~SetDisplayObjectivePacket() override {};
 
     std::string serialize() const override;
 public:

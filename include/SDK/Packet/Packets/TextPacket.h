@@ -22,7 +22,7 @@ public:
     TextPacket();
     explicit TextPacket(std::string_view packetData);
 
-    ~TextPacket() {};
+    ~TextPacket() override {};
 
     Type type;
     bool needsTranslation;

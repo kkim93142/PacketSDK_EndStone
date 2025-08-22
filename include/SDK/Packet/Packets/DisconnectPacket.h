@@ -133,7 +133,7 @@ public:
     DisconnectPacket();
     explicit DisconnectPacket(std::string_view packetData);
 
-    ~DisconnectPacket() {};
+    ~DisconnectPacket() override {};
 
     DisconnectFailReason reason;
     bool hideDisconnectReason;

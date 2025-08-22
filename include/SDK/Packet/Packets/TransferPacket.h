@@ -3,7 +3,7 @@
 
 class TransferPacket final : public Packet {
 public:
-    ~TransferPacket() {};
+    ~TransferPacket() override {};
     explicit TransferPacket(const std::string &packetData);
     TransferPacket(const std::string &serverAddress, uint16_t port, bool reloadWorld);
 
