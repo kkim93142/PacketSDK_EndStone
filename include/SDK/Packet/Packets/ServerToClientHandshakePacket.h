@@ -5,7 +5,7 @@
 
 class ServerToClientHandshakePacket final : public Packet {
 public:
-    ServerToClientHandshakePacket(const std::string token);
+    ServerToClientHandshakePacket(const std::string &token);
     explicit ServerToClientHandshakePacket(std::string_view packetData);
 
     ~ServerToClientHandshakePacket() override {};

@@ -1,6 +1,6 @@
 #include "SDK/Packet/Packets/ServerToClientHandshakePacket.h"
 
-ServerToClientHandshakePacket::ServerToClientHandshakePacket(const std::string token) {
+ServerToClientHandshakePacket::ServerToClientHandshakePacket(const std::string &token) {
     this->token = token;
 }
 
