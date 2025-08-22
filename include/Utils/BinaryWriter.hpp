@@ -14,7 +14,7 @@ namespace BinaryWriter {
 
     public:
         Writer() = default;
-        explicit Writer(size_t reserve_size) {
+        explicit Writer(const size_t reserve_size) {
             buffer.reserve(reserve_size);
         }
 
@@ -29,34 +29,34 @@ namespace BinaryWriter {
         }
         [[nodiscard]] size_t size() const { return buffer.size(); }
         void clear() { buffer.clear(); }
-        void reserve(size_t size) { buffer.reserve(size); }
+        void reserve(const size_t size) { buffer.reserve(size); }
 
         // 기본 타입 쓰기 (리틀 엔디안)
         void writeUInt8(const uint8_t value) {
             buffer.push_back(value);
         }
 
-        void writeInt8(int8_t value) {
+        void writeInt8(const int8_t value) {
             writeUInt8(static_cast<uint8_t>(value));
         }
 
-        void writeUInt16(uint16_t value) {
+        void writeUInt16(const uint16_t value) {
             buffer.push_back(static_cast<uint8_t>(value));
             buffer.push_back(static_cast<uint8_t>(value >> 8));
         }
 
-        void writeInt16(int16_t value) {
+        void writeInt16(const int16_t value) {
             writeUInt16(static_cast<uint16_t>(value));
         }
 
-        void writeUInt32(uint32_t value) {
+        void writeUInt32(const uint32_t value) {
             buffer.push_back(static_cast<uint8_t>(value));
             buffer.push_back(static_cast<uint8_t>(value >> 8));
             buffer.push_back(static_cast<uint8_t>(value >> 16));
             buffer.push_back(static_cast<uint8_t>(value >> 24));
         }
 
-        void writeInt32(int32_t value) {
+        void writeInt32(const int32_t value) {
             writeUInt32(static_cast<uint32_t>(value));
         }
 
@@ -332,6 +332,42 @@ namespace BinaryWriter {
             buffer.push_back(static_cast<uint8_t>(value >> 8));
             buffer.push_back(static_cast<uint8_t>(value));
         }
+
+        void writeVec2Float(const Vector2<float>& vec) {
+            writeFloat(vec.x);
+            writeFloat(vec.y);
+        }
+
+        void writeVec3Int(const Vector3<int>& vec) {
+            writeInt32(vec.x);
+            writeInt32(vec.y);
+            writeInt32(vec.z);
+        }
+
+        void writeVec3VarInt(const Vector3<VarInt>& vec) {
+            writeVarInt32(vec.x);
+            writeVarInt32(vec.y);
+            writeVarInt32(vec.z);
+        }
+
+        void writeVec3Float(const Vector3<float>& vec) {
+            writeFloat(vec.x);
+            writeFloat(vec.y);
+            writeFloat(vec.z);
+        }
+
+        void writeVec3ZigZag32(const Vector3<ZigZag32>& vec) {
+            writeZigZag32(vec.x);
+            writeZigZag32(vec.y);
+            writeZigZag32(vec.z);
+        }
+
+        void writeBlockCoordinates(const BlockCoordinates& coords) {
+            writeZigZag32(coords.x);
+            writeVarInt32(coords.y);
+            writeZigZag32(coords.z);
+        }
+
 
         // 템플릿 기반 쓰기 (POD 타입용)
         template<typename T>

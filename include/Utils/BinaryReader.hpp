@@ -1,4 +1,6 @@
 #pragma once
+#include "SDK/Types/Math.hpp"
+
 #include <stdexcept>
 
 namespace BinaryReader {
@@ -350,6 +352,32 @@ namespace BinaryReader {
                             static_cast<uint64_t>(static_cast<uint8_t>(data[position + 7]));
             position += 8;
             return value;
+        }
+
+        Vector2<float> readVec2Float() {
+            return Vector2<float>(readFloat(), readFloat());
+        }
+
+        Vector3<int> readVec3Int() {
+            return Vector3<int>(readInt32(), readInt32(), readInt32());
+        }
+
+        Vector3<VarInt> readVec3VarInt() {
+            return Vector3<VarInt>(readVarInt32(), readVarInt32(), readVarInt32());
+        }
+
+        Vector3<float> readVec3Float() {
+            return Vector3<float>(readFloat(), readFloat(), readFloat());
+        }
+
+        Vector3<ZigZag32> readVec3ZigZag32() {
+            return Vector3<ZigZag32>(readZigZag32(), readZigZag32(), readZigZag32());
+        }
+
+        BlockCoordinates readBlockCoordinates() {
+            return BlockCoordinates(
+                readZigZag32(), readVarInt32(), readZigZag32()
+            );
         }
 
         // 템플릿 기반 읽기 (POD 타입용)

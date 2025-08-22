@@ -12,6 +12,7 @@ class TestPlugin : public endstone::Plugin {
     {
         getLogger().info("Successfully loaded and enabled test plugin.");
         registerEvent(&TestPlugin::onPacket, *this);
+        registerEvent(&TestPlugin::onPacketSend, *this);
     }
 
     bool onCommand(endstone::CommandSender &sender, const endstone::Command &command, const std::vector<std::string> &args) override
@@ -42,5 +43,9 @@ class TestPlugin : public endstone::Plugin {
             getLogger().info("text: {}", bookEditPacket.text.value_or("nothing"));
             getLogger().info("slot: {}", bookEditPacket.slot);
         }
+    }
+
+    void onPacketSend(endstone::PacketSendEvent& event) {
+
     }
 };
