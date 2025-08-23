@@ -3,8 +3,8 @@
 #include "ZigZag.hpp"
 
 template <typename T>
-class Vector2<T> {
-public
+class Vector2 {
+public:
     Vector2(T x, T y) {
         this->x = x;
         this->y = y;
@@ -14,7 +14,7 @@ public
 };
 
 template <typename T>
-class Vector3<T> {
+class Vector3 {
 public:
     Vector3(T x, T y, T z) {
         this->x = x;
