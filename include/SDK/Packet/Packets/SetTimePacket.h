@@ -4,10 +4,10 @@
 
 class SetTimePacket final : public Packet {
 public:
-    SetTimePacket(const int32_t time);
+    explicit SetTimePacket(const int32_t time);
     explicit SetTimePacket(std::string_view packetData);
 
-    ~SetTimePacket()() override {};
+    ~SetTimePacket() override {};
 
     ZigZag32 time;
 
